@@ -20,12 +20,17 @@ const closeModal = function () {
 };
 
 //Loops over each and every button show modal
-for (let i = 0; i < btnsOpenModal.length; i++)
-  btnsOpenModal[i].addEventListener(
-    'click',
+// for (let i = 0; i < btnsOpenModal.length; i++)
+//   btnsOpenModal[i].addEventListener(
+//     'click',
 
-    openModal
-  );
+//     openModal
+//   );
+
+//Use the Array.from to convert the btnsOpenModal to an array and loops over it to add the event listener
+Array.from(btnsOpenModal, function (el, i, arr) {
+  el.addEventListener('click', openModal);
+});
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
