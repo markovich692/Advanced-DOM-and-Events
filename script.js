@@ -34,6 +34,10 @@ document.addEventListener('keydown', function (e) {
 
 //Create a message DOM element Object
 const message = document.createElement('div');
-console.log(message);
+
 //Add a classlist of cookie-message
 message.classList.add('cookie-message');
+
+message.innerHTML = `We use cookiess for improved functionalities and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
+
+document.querySelector('.header').prepend(message);
