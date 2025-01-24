@@ -9,6 +9,7 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const allSections = document.querySelectorAll('.section');
 const allButtons = document.getElementsByTagName('button');
+const header = document.querySelector('.header');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -38,6 +39,17 @@ const message = document.createElement('div');
 //Add a classlist of cookie-message
 message.classList.add('cookie-message');
 
-message.innerHTML = `We use cookiess for improved functionalities and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
+message.innerHTML = `We use cookies for improved functionalities and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
 
-document.querySelector('.header').prepend(message);
+// console.log(message.cloneNode(true));
+
+//Inserts the message element in the DOM
+header.append(message);
+
+//Adds an event listener to the button close cookie
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    // message.remove();
+    message.parentElement.removeChild(message);
+  });
