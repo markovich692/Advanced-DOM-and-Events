@@ -8,6 +8,7 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const allSections = document.querySelectorAll('.section');
+const allButtons = document.getElementsByTagName('button');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -30,3 +31,9 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//Create a message DOM element Object
+const message = document.createElement('div');
+console.log(message);
+//Add a classlist of cookie-message
+message.classList.add('cookie-message');
