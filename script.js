@@ -60,10 +60,12 @@ message.style.width = '120%';
 
 // console.log(message.style.width);
 
-console.log(getComputedStyle(message).height);
+// console.log(getComputedStyle(message).height);
 
 //Parse the computed height and add 40 px to it
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
 
-console.log(message.style.height);
+// console.log(message.style.height);
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
