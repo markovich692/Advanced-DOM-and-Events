@@ -40,6 +40,7 @@ console.log(btnScrollTo);
 
 btnScrollTo.addEventListener('click', function (e) {
   console.log('button clicked');
+
   //Gets section1 coordinates
   const s1coords = section1.getBoundingClientRect();
   console.log(s1coords.top);
@@ -48,11 +49,14 @@ btnScrollTo.addEventListener('click', function (e) {
   // console.log(window.scrollX, window.scrollY);
 
   //Scroll to the section1 passing an option object
-  window.scrollTo({
-    left: s1coords.left + window.scrollX,
-    top: s1coords.top + window.scrollY,
-    behavior: 'smooth',
-  });
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 // console.log(btnScrollTo);
