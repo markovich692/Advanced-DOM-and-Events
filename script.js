@@ -35,6 +35,12 @@ document.addEventListener('keydown', function (e) {
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 
+console.log(btnScrollTo);
+
+btnScrollTo.addEventListener('click', function (e) {
+  console.log('button clicked');
+});
+
 // console.log(btnScrollTo);
 
 //Create a message DOM element Object
