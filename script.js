@@ -34,11 +34,16 @@ document.addEventListener('keydown', function (e) {
 });
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 console.log(btnScrollTo);
 
 btnScrollTo.addEventListener('click', function (e) {
   console.log('button clicked');
+  //Gets section1 coordinates
+  const s1coords = section1.getBoundingClientRect;
+
+  console.log(s1coords);
 });
 
 // console.log(btnScrollTo);
