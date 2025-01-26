@@ -33,30 +33,37 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+
+// console.log(btnScrollTo);
+
 //Create a message DOM element Object
-const message = document.createElement('div');
+// const message = document.createElement('div');
 
 //Add a classlist of cookie-message
-message.classList.add('cookie-message');
+// message.classList.add('cookie-message');
 
-message.innerHTML = `We use cookies for improved functionalities 
-and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
+// message.innerHTML = `We use cookies for improved functionalities
+// and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
 
+//TEST
 // console.log(message.cloneNode(true));
 
 //Inserts the message element in the DOM
-header.append(message);
+// header.append(message);
 
 // Adds an event listener to the button close cookie
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
-    // message.parentElement.removeChild(message);
-  });
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//Delete the element on click
+// message.remove();
+// message.parentElement.removeChild(message);
+// });
 
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
+//Set the element backgound-color and width
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
 // message.style.setProperty('width', '120%');
 
 // console.log(message.style.width);
@@ -64,11 +71,11 @@ message.style.width = '120%';
 // console.log(getComputedStyle(message).height);
 
 //Parse the computed height and add 40 px to it
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
 
 // console.log(message.style.height);
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-console.log(document.querySelector('.nav__logo').getAttribute('design'));
+// console.log(document.querySelector('.nav__logo').getAttribute('design'));
