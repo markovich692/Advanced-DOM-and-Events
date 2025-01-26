@@ -39,17 +39,28 @@ const message = document.createElement('div');
 //Add a classlist of cookie-message
 message.classList.add('cookie-message');
 
-message.innerHTML = `We use cookies for improved functionalities and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
+message.innerHTML = `We use cookies for improved functionalities 
+and analytics <button class='btn btn--close-cookie'>Got it!</button>`;
 
 // console.log(message.cloneNode(true));
 
 //Inserts the message element in the DOM
 header.append(message);
 
-//Adds an event listener to the button close cookie
+// Adds an event listener to the button close cookie
 document
   .querySelector('.btn--close-cookie')
   .addEventListener('click', function () {
-    // message.remove();
-    message.parentElement.removeChild(message);
+    message.remove();
+    // message.parentElement.removeChild(message);
   });
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+// console.log(message.style.height);
+// console.log(getComputedStyle(message).height);
+
+const heightSet = getComputedStyle(message).height;
+
+console.log(heightSet);
