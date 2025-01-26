@@ -58,9 +58,12 @@ document
 message.style.backgroundColor = '#37383d';
 message.style.width = '120%';
 
-// console.log(message.style.height);
-// console.log(getComputedStyle(message).height);
+// console.log(message.style.width);
 
-const heightSet = getComputedStyle(message).height;
+console.log(getComputedStyle(message).height);
 
-console.log(heightSet);
+//Parse the computed height and add 40 px to it
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
+
+console.log(message.style.height);
