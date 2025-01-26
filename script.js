@@ -57,6 +57,7 @@ document
 
 message.style.backgroundColor = '#37383d';
 message.style.width = '120%';
+// message.style.setProperty('width', '120%');
 
 // console.log(message.style.width);
 
@@ -69,3 +70,5 @@ message.style.height =
 // console.log(message.style.height);
 
 document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+console.log(document.querySelector('.nav__logo').getAttribute('design'));
