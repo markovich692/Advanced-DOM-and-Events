@@ -59,6 +59,10 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
+h1.addEventListener('mouseenter', function (e) {
+  alert('Wish you a happy new year');
+});
+
 // console.log(btnScrollTo);
 
 //Create a message DOM element Object
