@@ -59,9 +59,13 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-h1.addEventListener('mouseenter', function (e) {
-  alert('Wish you a happy new year');
-});
+// document.querySelector('h1').addEventListener('mouseenter', function (e) {
+//   alert('Wish you a happy new year');
+// });
+
+document.querySelector('h1').onmouseenter = function (e) {
+  alert('Hello, world!');
+};
 
 // console.log(btnScrollTo);
 
