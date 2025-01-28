@@ -120,7 +120,6 @@ const h1 = document.querySelector('h1');
 
 //Event propagation
 const featuresLink = document.querySelector('.nav__link');
-const navItem = document.querySelector('.nav__item');
 const navLinks = document.querySelector('.nav__links');
 const nav = document.querySelector('nav');
 
@@ -129,6 +128,6 @@ const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const randomColor = () =>
   `rgb(${randInt(0, 255)},${randInt(0, 255)},${randInt(0, 255)})`;
 
-console.log(randomColor());
-console.log(randomColor());
-console.log(randomColor());
+featuresLink.addEventListener('click', function (e) {
+  e.target.style.backgroundColor = randomColor();
+});
