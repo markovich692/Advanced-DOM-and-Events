@@ -59,13 +59,19 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-// document.querySelector('h1').addEventListener('mouseenter', function (e) {
-//   alert('Wish you a happy new year');
-// });
+const h1 = document.querySelector('h1');
 
-document.querySelector('h1').onmouseenter = function (e) {
-  alert('Hello, world!');
+// h1.onmouseenter = function (e) {
+//   alert('Hello, world!');
+// };
+
+const alertH1 = function (e) {
+  alert('Wish you a happy new year');
+
+  h1.removeEventListener('mouseenter', alertH1);
 };
+
+h1.addEventListener('mouseenter', alertH1);
 
 // console.log(btnScrollTo);
 
