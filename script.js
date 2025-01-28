@@ -65,13 +65,13 @@ const h1 = document.querySelector('h1');
 //   alert('Hello, world!');
 // };
 
-const alertH1 = function (e) {
-  alert('Wish you a happy new year');
+// const alertH1 = function (e) {
+//   alert('Wish you a happy new year');
 
-  h1.removeEventListener('mouseenter', alertH1);
-};
+//   h1.removeEventListener('mouseenter', alertH1);
+// };
 
-h1.addEventListener('mouseenter', alertH1);
+// h1.addEventListener('mouseenter', alertH1);
 
 // console.log(btnScrollTo);
 
@@ -124,4 +124,11 @@ const navItem = document.querySelector('.nav__item');
 const navLinks = document.querySelector('.nav__links');
 const nav = document.querySelector('nav');
 
-const randInt = (min, max) => Math.floor((max - min + 1) * Math.random());
+const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () =>
+  `rgb(${randInt(0, 255)},${randInt(0, 255)},${randInt(0, 255)})`;
+
+console.log(randomColor());
+console.log(randomColor());
+console.log(randomColor());
