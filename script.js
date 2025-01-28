@@ -117,3 +117,11 @@ h1.addEventListener('mouseenter', alertH1);
 // document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // console.log(document.querySelector('.nav__logo').getAttribute('design'));
+
+//Event propagation
+const featuresLink = document.querySelector('.nav__link');
+const navItem = document.querySelector('.nav__item');
+const navLinks = document.querySelector('.nav__links');
+const nav = document.querySelector('nav');
+
+const randInt = (min, max) => Math.floor((max - min + 1) * Math.random());
