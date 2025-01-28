@@ -129,5 +129,16 @@ const randomColor = () =>
   `rgb(${randInt(0, 255)},${randInt(0, 255)},${randInt(0, 255)})`;
 
 featuresLink.addEventListener('click', function (e) {
-  e.target.style.backgroundColor = randomColor();
+  this.style.backgroundColor = randomColor();
+  console.log('LINK');
+});
+
+navLinks.addEventListener('click', function (e) {
+  // e.target.style.backgroundColor = randomColor();
+  console.log('LINK');
+});
+
+nav.addEventListener('click', function (e) {
+  // e.target.style.backgroundColor = randomColor();
+  console.log('LINK');
 });
