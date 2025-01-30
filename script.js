@@ -49,7 +49,7 @@ const h1 = document.querySelector('h1');
 // document.querySelectorAll('.nav__link').forEach(function (el, i) {
 //   el.addEventListener('click', function (e) {
 //     e.preventDefault();
-//     const id = this.getAttribute('href');
+//     const id = e.target.getAttribute('href');
 //     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 //   });
 // });
@@ -57,13 +57,14 @@ const h1 = document.querySelector('h1');
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
 
-  const hasClass = e.target.classList.contains('nav__link');
-
-  const id = e.target.getAttribute('href');
-
-  if (hasClass)
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
 });
+
+const h4Element = document.querySelector('.header__title h4');
+console.log(h4Element);
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
