@@ -57,11 +57,12 @@ const h1 = document.querySelector('h1');
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
 
-  console.log(e.target);
+  const hasClass = e.target.classList.contains('nav__link');
 
   const id = e.target.getAttribute('href');
 
-  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  if (hasClass)
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 });
 
 // h1.onmouseenter = function (e) {
