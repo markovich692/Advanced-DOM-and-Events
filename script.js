@@ -67,6 +67,8 @@ console.log(h1.childNodes);
 
 //Going Downwards
 console.log(h1.children);
+console.log(h1.firstElementChild);
+console.log(h1.lastElementChild);
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
