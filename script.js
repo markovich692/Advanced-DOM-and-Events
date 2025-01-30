@@ -63,12 +63,20 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-console.log(h1.childNodes);
-
 //Going Downwards
-console.log(h1.children);
-console.log(h1.firstElementChild);
-console.log(h1.lastElementChild);
+// console.log(h1.childNodes);
+// console.log(h1.children);
+// console.log(h1.firstElementChild);
+// console.log(h1.lastElementChild);
+
+//Going upwards
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+h1.closest('.header').style.setProperty(
+  'background',
+  'var(--gradient-secondary)'
+);
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
