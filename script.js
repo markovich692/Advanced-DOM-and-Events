@@ -12,8 +12,8 @@ const allButtons = document.getElementsByTagName('button');
 const header = document.querySelector('.header');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
-const section2 = document.querySelector('#section--2');
-const section3 = document.querySelector('#section--3');
+// const section2 = document.querySelector('#section--2');
+// const section3 = document.querySelector('#section--3');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -37,39 +37,28 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-//Page Navigation
-
+//Scrolling Functionality
 btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 const h1 = document.querySelector('h1');
 
-//INSERT SCROLLING FUNCTIONALITY
+//PAGE NAVIGATION
 
-const navLink = document.querySelectorAll('.nav__link');
+// document.querySelectorAll('.nav__link').forEach(function (el, i) {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
 
-navLink.forEach(function (cur, i) {
-  cur.addEventListener('click', function (e) {
-    e.preventDefault();
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
 
-    const id = this.getAttribute('href');
-    // const elementTextContent = cur.textContent;
-
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-
-    // if (elementTextContent === 'Features') {
-    //   section1.scrollIntoView({ behavior: 'smooth' });
-    // }
-
-    // if (elementTextContent === 'Operations') {
-    //   section2.scrollIntoView({ behavior: 'smooth' });
-    // }
-
-    // if (elementTextContent === 'Testimonials') {
-    //   section3.scrollIntoView({ behavior: 'smooth' });
-    // }
-  });
+  console.log(e.target);
+  console.log(this);
 });
 
 // h1.onmouseenter = function (e) {
