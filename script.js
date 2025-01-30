@@ -10,6 +10,10 @@ const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const allSections = document.querySelectorAll('.section');
 const allButtons = document.getElementsByTagName('button');
 const header = document.querySelector('.header');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const section2 = document.querySelector('#section--2');
+const section3 = document.querySelector('#section--3');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -33,30 +37,9 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-const section2 = document.querySelector('#section--2');
-const section3 = document.querySelector('#section--3');
-
-// console.log(section1);
-
-// console.log(btnScrollTo);
+//Page Navigation
 
 btnScrollTo.addEventListener('click', function (e) {
-  console.log('button clicked');
-
-  // console.log(e.target.getBoundingClientRect());
-
-  // console.log(window.scrollX, window.scrollY);
-
-  //Scroll to the section1 passing an option object
-
-  // window.scrollTo({
-  //   left: s1coords.left + window.scrollX,
-  //   top: s1coords.top + window.scrollY,
-  //   behavior: 'smooth',
-  // });
-
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
@@ -65,24 +48,27 @@ const h1 = document.querySelector('h1');
 //INSERT SCROLLING FUNCTIONALITY
 
 const navLink = document.querySelectorAll('.nav__link');
-// console.log(navLink);
 
 navLink.forEach(function (cur, i) {
   cur.addEventListener('click', function (e) {
     e.preventDefault();
-    const elementTextContent = cur.textContent;
 
-    if (elementTextContent === 'Features') {
-      section1.scrollIntoView({ behavior: 'smooth' });
-    }
+    const id = this.getAttribute('href');
+    // const elementTextContent = cur.textContent;
 
-    if (elementTextContent === 'Operations') {
-      section2.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-    if (elementTextContent === 'Testimonials') {
-      section3.scrollIntoView({ behavior: 'smooth' });
-    }
+    // if (elementTextContent === 'Features') {
+    //   section1.scrollIntoView({ behavior: 'smooth' });
+    // }
+
+    // if (elementTextContent === 'Operations') {
+    //   section2.scrollIntoView({ behavior: 'smooth' });
+    // }
+
+    // if (elementTextContent === 'Testimonials') {
+    //   section3.scrollIntoView({ behavior: 'smooth' });
+    // }
   });
 });
 
