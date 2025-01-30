@@ -63,8 +63,10 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-const h4Element = document.querySelector('.header__title h4');
-console.log(h4Element);
+console.log(h1.childNodes);
+
+//Going Downwards
+console.log(h1.children);
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
