@@ -35,15 +35,16 @@ document.addEventListener('keydown', function (e) {
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const section2 = document.querySelector('#section--2');
+const section3 = document.querySelector('#section--3');
 
-console.log(btnScrollTo);
+// console.log(section1);
+
+// console.log(btnScrollTo);
 
 btnScrollTo.addEventListener('click', function (e) {
   console.log('button clicked');
 
-  //Gets section1 coordinates
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords.top);
   // console.log(e.target.getBoundingClientRect());
 
   // console.log(window.scrollX, window.scrollY);
@@ -60,6 +61,30 @@ btnScrollTo.addEventListener('click', function (e) {
 });
 
 const h1 = document.querySelector('h1');
+
+//INSERT SCROLLING FUNCTIONALITY
+
+const navLink = document.querySelectorAll('.nav__link');
+// console.log(navLink);
+
+navLink.forEach(function (cur, i) {
+  cur.addEventListener('click', function (e) {
+    e.preventDefault();
+    const elementTextContent = cur.textContent;
+
+    if (elementTextContent === 'Features') {
+      section1.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (elementTextContent === 'Operations') {
+      section2.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (elementTextContent === 'Testimonials') {
+      section3.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
@@ -118,27 +143,35 @@ const h1 = document.querySelector('h1');
 
 // console.log(document.querySelector('.nav__logo').getAttribute('design'));
 
-//Event propagation
-const featuresLink = document.querySelector('.nav__link');
-const navLinks = document.querySelector('.nav__links');
-const nav = document.querySelector('nav');
+//EVENT PROPAGATION
+// const featuresLink = document.querySelector('.nav__link');
+// const navLinks = document.querySelector('.nav__links');
+// const nav = document.querySelector('nav');
 
-const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+// const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-const randomColor = () =>
-  `rgb(${randInt(0, 255)},${randInt(0, 255)},${randInt(0, 255)})`;
+// const randomColor = () =>
+//   `rgb(${randInt(0, 255)},${randInt(0, 255)},${randInt(0, 255)})`;
 
-featuresLink.addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  console.log('LINK');
-});
+// featuresLink.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('LINK');
+//   //Stop propagation
+//   // e.stopPropagation();
+//   console.log(e.target, e.currentTarget);
+// });
 
-navLinks.addEventListener('click', function (e) {
-  // e.target.style.backgroundColor = randomColor();
-  console.log('LINK');
-});
+// navLinks.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('NAV LINKS');
+//   console.log(e.target, e.currentTarget);
+// });
 
-nav.addEventListener('click', function (e) {
-  // e.target.style.backgroundColor = randomColor();
-  console.log('LINK');
-});
+// nav.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   console.log('NAV');
+//   console.log(e.target, e.currentTarget);
+// });
