@@ -63,6 +63,18 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+//Tabbed component
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+console.log(tabs);
+console.log(tabsContainer);
+console.log(tabsContent);
+
+////////////////////////////////////
+////////////////////////////////////
 //Going Downwards
 // console.log(h1.childNodes);
 // console.log(h1.children);
@@ -70,13 +82,18 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 // console.log(h1.lastElementChild);
 
 //Going upwards
-console.log(h1.parentNode);
-console.log(h1.parentElement);
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
+// h1.closest('.header').style.setProperty(
+//   'background',
+//   'var(--gradient-secondary)'
+// );
 
-h1.closest('.header').style.setProperty(
-  'background',
-  'var(--gradient-secondary)'
-);
+//Going sideways
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
 
 // h1.onmouseenter = function (e) {
 //   alert('Hello, world!');
