@@ -65,16 +65,18 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
 //Tabbed component
 
-const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
+const tabs = document.querySelectorAll('.operations__tab');
 const tabsContent = document.querySelectorAll('.operations__content');
 
-console.log(tabs);
-console.log(tabsContainer);
-console.log(tabsContent);
+//Adds event listener to tabsContainer
+tabsContainer.addEventListener('click', function (e) {
+  console.log(e.target);
+});
 
 ////////////////////////////////////
 ////////////////////////////////////
+
 //Going Downwards
 // console.log(h1.childNodes);
 // console.log(h1.children);
