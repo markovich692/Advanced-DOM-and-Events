@@ -71,9 +71,17 @@ const tabsContent = document.querySelectorAll('.operations__content');
 
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
-  console.log(e.target);
+  e.target.classList.add('operations__tab--active');
+
+  tabs.forEach(function (el, i) {
+    if (el.dataset.tab !== e.target.dataset.tab) {
+      el.classList.remove('operations__tab--active');
+    }
+  });
 });
 
+////////////////////////////////////
+////////////////////////////////////
 ////////////////////////////////////
 ////////////////////////////////////
 
