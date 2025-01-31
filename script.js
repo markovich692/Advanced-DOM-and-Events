@@ -71,10 +71,16 @@ const tabsContent = document.querySelectorAll('.operations__content');
 
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
-  e.target.classList.add('operations__tab--active');
+  let clicked = e.target;
+
+  clicked.classList.contains('operations__tab')
+    ? (clicked = e.target)
+    : (clicked = clicked.parentElement);
+
+  clicked.classList.add('operations__tab--active');
 
   tabs.forEach(function (el, i) {
-    if (el.dataset.tab !== e.target.dataset.tab) {
+    if (el.dataset.tab !== clicked.dataset.tab) {
       el.classList.remove('operations__tab--active');
     }
   });
