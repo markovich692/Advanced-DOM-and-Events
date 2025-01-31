@@ -71,11 +71,7 @@ const tabsContent = document.querySelectorAll('.operations__content');
 
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
-  let clicked = e.target;
-
-  clicked.classList.contains('operations__tab')
-    ? (clicked = e.target)
-    : (clicked = clicked.parentElement);
+  const clicked = e.target.closest('.operations__tab');
 
   clicked.classList.add('operations__tab--active');
 
