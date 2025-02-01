@@ -91,12 +91,10 @@ tabsContainer.addEventListener('click', function (e) {
 
 //MENU FADE ANIMATION
 nav.addEventListener('mouseover', function (e) {
-  let link, siblings, logo;
-
   if (e.target.classList.contains('nav__link')) {
-    link = e.target;
-    siblings = link.closest('.nav').querySelectorAll('.nav__link');
-    logo = link.closest('.nav').querySelector('img');
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
 
     siblings.forEach(function (el, i) {
       if (el !== link) {
@@ -107,7 +105,20 @@ nav.addEventListener('mouseover', function (e) {
   }
 });
 
-nav.addEventListener('mouseout', function (e) {});
+nav.addEventListener('mouseout', function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(function (el, i) {
+      if (el !== link) {
+        el.style.opacity = 0.5;
+        logo.style.opacity = 0.5;
+      }
+    });
+  }
+});
 
 //Going Downwards
 // console.log(h1.childNodes);
