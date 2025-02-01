@@ -91,7 +91,7 @@ tabsContainer.addEventListener('click', function (e) {
 
 //MENU FADE ANIMATION
 
-const handleMouseOver = function (event, opacityValue) {
+const handleHover = function (event, opacityValue) {
   if (event.target.classList.contains('nav__link')) {
     const link = event.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
@@ -107,11 +107,11 @@ const handleMouseOver = function (event, opacityValue) {
 };
 
 nav.addEventListener('mouseover', function (e) {
-  handleMouseOver(e, 0.5);
+  handleHover(e, 0.5);
 });
 
 nav.addEventListener('mouseout', function (e) {
-  handleMouseOver(e, 1);
+  handleHover(e, 1);
 });
 
 //Going Downwards
