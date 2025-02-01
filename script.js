@@ -2,7 +2,6 @@
 
 ///////////////////////////////////////
 // Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -85,16 +84,21 @@ tabsContainer.addEventListener('click', function (e) {
   clicked.classList.add('operations__tab--active');
 
   //CONTENT
-
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
 
 //MENU FADE ANIMATION
-nav.addEventListener('click', function (e) {
-  console.log(e.target);
+nav.addEventListener('mouseover', function (e) {
+  // console.log(e.target);
+
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+  }
 });
+
+nav.addEventListener('mouseout', function (e) {});
 
 //Going Downwards
 // console.log(h1.childNodes);
