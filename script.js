@@ -86,6 +86,8 @@ tabsContainer.addEventListener('click', function (e) {
 
   operationsContent.forEach(function (el, i) {
     console.log(el);
+
+    const tab = clicked.dataset.tab;
   });
 });
 
