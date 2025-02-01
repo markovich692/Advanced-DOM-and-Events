@@ -68,7 +68,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContent = document.querySelectorAll('.operations__content');
-const operationsContent = document.querySelectorAll('.operations__content');
 
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
@@ -77,25 +76,20 @@ tabsContainer.addEventListener('click', function (e) {
   //Guard clause
   if (!clicked) return;
 
-  //Remove the operations__tab--active on each of the elements
-  tabs.forEach((el, i) => el.classList.remove('operations__tab--active'));
+  tabs.forEach(function (el, i) {
+    //Remove the operations__tab--active on each of the elements
+    el.classList.remove('operations__tab--active');
+    //Removes the active class on all of the content elements
+    tabsContent[i].classList.remove('operations__content--active');
+  });
 
   clicked.classList.add('operations__tab--active');
 
   //CONTENT
 
-  operationsContent.forEach(function (el, i) {
-    // console.log(el);
-
-    const tab = clicked.dataset.tab;
-
-    //Removes the active class on all of the content elements
-    el.classList.remove('operations__content--active');
-
-    document
-      .querySelector(`.operations__content--${tab}`)
-      .classList.add('operations__content--active');
-  });
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
 
 //Going Downwards
