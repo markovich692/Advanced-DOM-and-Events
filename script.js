@@ -14,6 +14,10 @@ const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 // const section2 = document.querySelector('#section--2');
 // const section3 = document.querySelector('#section--3');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -63,12 +67,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-//Tabbed component
-
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContent = document.querySelectorAll('.operations__content');
-
+//TABS
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
@@ -90,6 +89,11 @@ tabsContainer.addEventListener('click', function (e) {
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
+});
+
+//MENU FADE ANIMATION
+nav.addEventListener('click', function (e) {
+  console.log(e.target);
 });
 
 //Going Downwards
