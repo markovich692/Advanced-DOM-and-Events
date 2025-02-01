@@ -88,6 +88,13 @@ tabsContainer.addEventListener('click', function (e) {
     console.log(el);
 
     const tab = clicked.dataset.tab;
+
+    //Removes the active class on all of the content elements
+    el.classlist.remove('operations__content--active');
+
+    document
+      .querySelector(`operations__content--${tab}`)
+      .classlist.add('operations__content--active');
   });
 });
 
