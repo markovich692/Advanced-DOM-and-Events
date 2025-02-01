@@ -68,6 +68,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContent = document.querySelectorAll('.operations__content');
+const operationsContent = document.querySelectorAll('.operations__content');
 
 //Adds event listener to tabsContainer
 tabsContainer.addEventListener('click', function (e) {
@@ -80,6 +81,12 @@ tabsContainer.addEventListener('click', function (e) {
   tabs.forEach((el, i) => el.classList.remove('operations__tab--active'));
 
   clicked.classList.add('operations__tab--active');
+
+  //CONTENT
+
+  operationsContent.forEach(function (el, i) {
+    console.log(el);
+  });
 });
 
 ////////////////////////////////////
