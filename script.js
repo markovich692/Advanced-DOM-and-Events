@@ -90,34 +90,28 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 //MENU FADE ANIMATION
-nav.addEventListener('mouseover', function (e) {
-  if (e.target.classList.contains('nav__link')) {
-    const link = e.target;
+
+const handleMouseOver = function (event, opacityValue) {
+  if (event.target.classList.contains('nav__link')) {
+    const link = event.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
 
     siblings.forEach(function (el) {
       if (el !== link) {
-        el.style.opacity = 0.5;
-        logo.style.opacity = 0.5;
+        el.style.opacity = opacityValue;
+        logo.style.opacity = opacityValue;
       }
     });
   }
+};
+
+nav.addEventListener('mouseover', function (e) {
+  handleMouseOver(e, 0.5);
 });
 
 nav.addEventListener('mouseout', function (e) {
-  if (e.target.classList.contains('nav__link')) {
-    const link = e.target;
-    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-    const logo = link.closest('.nav').querySelector('img');
-
-    siblings.forEach(function (el) {
-      if (el !== link) {
-        el.style.opacity = 1;
-        logo.style.opacity = 1;
-      }
-    });
-  }
+  handleMouseOver(e, 1);
 });
 
 //Going Downwards
