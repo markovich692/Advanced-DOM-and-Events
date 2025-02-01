@@ -90,8 +90,7 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 //MENU FADE ANIMATION
-
-const handleHover = function (event, opacityValue) {
+const handleHover = function (event, opacity) {
   if (event.target.classList.contains('nav__link')) {
     const link = event.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
@@ -99,8 +98,8 @@ const handleHover = function (event, opacityValue) {
 
     siblings.forEach(function (el) {
       if (el !== link) {
-        el.style.opacity = opacityValue;
-        logo.style.opacity = opacityValue;
+        el.style.opacity = opacity;
+        logo.style.opacity = opacity;
       }
     });
   }
@@ -113,6 +112,22 @@ nav.addEventListener('mouseover', function (e) {
 nav.addEventListener('mouseout', function (e) {
   handleHover(e, 1);
 });
+
+//Sticky navigation
+const s1Coords = section1.getBoundingClientRect();
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= s1Coords.top) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+});
+
+// window.addEventListener('scroll', function () {
+//   if (s1coords.left === window.scrollX && s1coords.top === window.scrollY) {
+//     nav.classList.add('sticky');
+//   }
+// });
 
 //Going Downwards
 // console.log(h1.childNodes);
