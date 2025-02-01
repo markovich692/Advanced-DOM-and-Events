@@ -73,13 +73,13 @@ const tabsContent = document.querySelectorAll('.operations__content');
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
 
-  clicked.classList.add('operations__tab--active');
+  //Guard clause
+  if (!clicked) return;
 
-  tabs.forEach(function (el, i) {
-    if (el.dataset.tab !== clicked.dataset.tab) {
-      el.classList.remove('operations__tab--active');
-    }
-  });
+  //Remove the operations__tab--active on each of the elements
+  tabs.forEach((el, i) => el.classList.remove('operations__tab--active'));
+
+  clicked.classList.add('operations__tab--active');
 });
 
 ////////////////////////////////////
