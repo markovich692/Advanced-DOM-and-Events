@@ -85,23 +85,18 @@ tabsContainer.addEventListener('click', function (e) {
   //CONTENT
 
   operationsContent.forEach(function (el, i) {
-    console.log(el);
+    // console.log(el);
 
     const tab = clicked.dataset.tab;
 
     //Removes the active class on all of the content elements
-    el.classlist.remove('operations__content--active');
+    el.classList.remove('operations__content--active');
 
     document
-      .querySelector(`operations__content--${tab}`)
-      .classlist.add('operations__content--active');
+      .querySelector(`.operations__content--${tab}`)
+      .classList.add('operations__content--active');
   });
 });
-
-////////////////////////////////////
-////////////////////////////////////
-////////////////////////////////////
-////////////////////////////////////
 
 //Going Downwards
 // console.log(h1.childNodes);
