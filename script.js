@@ -139,7 +139,9 @@ nav.addEventListener('mouseout', function (e) {
 
 // observer.observe(header);
 
-const navObsCallback = function (entries) {
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
   const [entry] = entries;
   if (entry.isIntersecting === false) {
     nav.classList.add('sticky');
@@ -148,10 +150,10 @@ const navObsCallback = function (entries) {
   }
 };
 
-const navigationObserver = new IntersectionObserver(navObsCallback, {
+const navigationObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: '-90px',
+  rootMargin: `${navHeight}px`,
 });
 
 navigationObserver.observe(header);
