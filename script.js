@@ -114,14 +114,16 @@ nav.addEventListener('mouseout', function (e) {
 });
 
 //Sticky navigation
-const s1Coords = section1.getBoundingClientRect();
-window.addEventListener('scroll', function () {
-  if (window.scrollY >= s1Coords.top) {
-    nav.classList.add('sticky');
-  } else {
-    nav.classList.remove('sticky');
-  }
-});
+// const s1Coords = section1.getBoundingClientRect();
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY >= s1Coords.top) {
+//     nav.classList.add('sticky');
+//   } else {
+//     nav.classList.remove('sticky');
+//   }
+// });
+
+const observer = new IntersectionObserver();
 
 // window.addEventListener('scroll', function () {
 //   if (s1coords.left === window.scrollX && s1coords.top === window.scrollY) {
