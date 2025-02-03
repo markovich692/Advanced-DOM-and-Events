@@ -123,21 +123,37 @@ nav.addEventListener('mouseout', function (e) {
 //   }
 // });
 
-const obsCallback = function (entries, observer) {
-  entries.forEach(function (entry) {
-    if (entry.isIntersecting === false) {
-      nav.classList.add('sticky');
-    } else {
-      nav.classList.remove('sticky');
-    }
-  });
+// const obsCallback = function (entries, observer) {
+//   entries.forEach(function (entry) {
+//     if (entry.isIntersecting === false) {
+//       nav.classList.add('sticky');
+//     } else {
+//       nav.classList.remove('sticky');
+//     }
+//   });
+// };
+
+// const obsOptions = { root: null, threshold: 0 };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+
+// observer.observe(header);
+
+const navObsCallback = function (entries) {
+  const [entry] = entries;
+  if (entry.isIntersecting === false) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
 };
 
-const obsOptions = { root: null, threshold: 0 };
+const navigationObserver = new IntersectionObserver(navObsCallback, {
+  root: null,
+  threshold: 0,
+});
 
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-
-observer.observe(header);
+navigationObserver.observe(header);
 
 //Going Downwards
 // console.log(h1.childNodes);
