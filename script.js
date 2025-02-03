@@ -151,6 +151,7 @@ const navObsCallback = function (entries) {
 const navigationObserver = new IntersectionObserver(navObsCallback, {
   root: null,
   threshold: 0,
+  rootMargin: '-90px',
 });
 
 navigationObserver.observe(header);
