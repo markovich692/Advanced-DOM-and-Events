@@ -123,19 +123,21 @@ nav.addEventListener('mouseout', function (e) {
 //   }
 // });
 
-const obsCallback = function () {};
+const obsCallback = function (entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting === false) {
+      nav.classList.add('sticky');
+    } else {
+      nav.classList.remove('sticky');
+    }
+  });
+};
 
-const obsOptions = {};
+const obsOptions = { root: null, threshold: 0 };
 
 const observer = new IntersectionObserver(obsCallback, obsOptions);
 
-observer.observe(section1);
-
-// window.addEventListener('scroll', function () {
-//   if (s1coords.left === window.scrollX && s1coords.top === window.scrollY) {
-//     nav.classList.add('sticky');
-//   }
-// });
+observer.observe(header);
 
 //Going Downwards
 // console.log(h1.childNodes);
