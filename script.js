@@ -125,6 +125,8 @@ nav.addEventListener('mouseout', function (e) {
 
 const observer = new IntersectionObserver();
 
+observer.observe(section1);
+
 // window.addEventListener('scroll', function () {
 //   if (s1coords.left === window.scrollX && s1coords.top === window.scrollY) {
 //     nav.classList.add('sticky');
