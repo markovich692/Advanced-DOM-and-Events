@@ -154,6 +154,25 @@ sections.forEach(function (cur) {
   cur.classList.add('section--hidden');
 });
 
+sections.forEach(function (cur) {
+  const revealSection = function (entries) {
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      cur.classList.remove('section--hidden');
+    } else {
+      cur.classList.add('section--hidden');
+    }
+  };
+
+  const sectionsObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0,
+  });
+
+  sectionsObserver.observe(cur);
+});
+
 //Going Downwards
 // console.log(h1.childNodes);
 // console.log(h1.children);
