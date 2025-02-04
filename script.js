@@ -150,9 +150,9 @@ navObserver.observe(header);
 
 const sections = [...document.querySelectorAll('.section')];
 
-sections.forEach(function (cur) {
-  cur.classList.add('section--hidden');
-});
+// sections.forEach(function (cur) {
+//   cur.classList.add('section--hidden');
+// });
 
 sections.forEach(function (cur) {
   const revealSection = function (entries) {
@@ -168,6 +168,7 @@ sections.forEach(function (cur) {
   const sectionsObserver = new IntersectionObserver(revealSection, {
     root: null,
     threshold: 0,
+    rootMargin: '-60px',
   });
 
   sectionsObserver.observe(cur);
