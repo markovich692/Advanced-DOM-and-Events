@@ -148,30 +148,26 @@ navObserver.observe(header);
 
 //REVEAL SECTIONS
 
-const sections = [...document.querySelectorAll('.section')];
+const sections = document.querySelectorAll('.section');
 
-sections.forEach(function (cur) {
-  cur.classList.add('section--hidden');
+const revealSection = function (entries) {
+  const [entry] = entries;
+
+  console.log(entry);
+  //GUARD CLAUSE
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.2,
 });
 
 sections.forEach(function (cur) {
-  const revealSection = function (entries) {
-    const [entry] = entries;
-
-    if (entry.isIntersecting) {
-      cur.classList.remove('section--hidden');
-    } else {
-      cur.classList.add('section--hidden');
-    }
-  };
-
-  const sectionsObserver = new IntersectionObserver(revealSection, {
-    root: null,
-    threshold: 0,
-    rootMargin: '-60px',
-  });
-
-  sectionsObserver.observe(cur);
+  cur.classList.add('section--hidden');
+  sectionObserver.observe(cur);
 });
 
 //Going Downwards
