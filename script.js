@@ -150,9 +150,9 @@ navObserver.observe(header);
 
 const sections = [...document.querySelectorAll('.section')];
 
-// sections.forEach(function (cur) {
-//   cur.classList.add('section--hidden');
-// });
+sections.forEach(function (cur) {
+  cur.classList.add('section--hidden');
+});
 
 sections.forEach(function (cur) {
   const revealSection = function (entries) {
