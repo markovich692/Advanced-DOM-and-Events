@@ -150,14 +150,14 @@ navObserver.observe(header);
 
 const sections = document.querySelectorAll('.section');
 
-const revealSection = function (entries) {
-  const [entry] = entries;
+const revealSection = function (entries, observer) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) return;
 
-  console.log(entry);
-  //GUARD CLAUSE
-  if (!entry.isIntersecting) return;
+    entry.target.classList.remove('section--hidden');
 
-  entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+  });
 };
 
 const sectionObserver = new IntersectionObserver(revealSection, {
