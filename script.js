@@ -200,6 +200,24 @@ imgTarget.forEach(function (el) {
   imagesObserver.observe(el);
 });
 
+//SLIDER
+
+const slides = document.querySelectorAll('.slide');
+
+slides.forEach(function (slide) {
+  if (slide.classList.contains('slide--1')) {
+    slide.style.transform = 'translateX(0%)';
+  }
+
+  if (slide.classList.contains('slide--2')) {
+    slide.style.transform = 'translateX(100%)';
+  }
+
+  if (slide.classList.contains('slide--3')) {
+    slide.style.transform = 'translateX(200%)';
+  }
+});
+
 //Going Downwards
 // console.log(h1.childNodes);
 // console.log(h1.children);
