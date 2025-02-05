@@ -178,9 +178,13 @@ const revealImages = function (entries, observer) {
   entries.forEach(function (entry) {
     if (!entry.isIntersecting) return;
 
-    entry.target.classList.remove('lazy-img');
-
     entry.target.src = entry.target.dataset.src;
+
+    //Displays image once the replacement image is fully loaded and well displayed
+
+    entry.target.addEventListener('load', function () {
+      entry.target.classList.remove('lazy-img');
+    });
 
     observer.unobserve(entry.target);
   });
