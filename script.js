@@ -173,22 +173,24 @@ sections.forEach(function (cur) {
 //Lazy Image
 
 const featuresImages = document.querySelectorAll('.features__img');
-console.log(featuresImages);
 
 const revealImages = function (entries, observer) {
   entries.forEach(function (entry) {
-    if (!entry.target.isIntersecting) return;
+    if (!entry.isIntersecting) return;
 
     entry.target.classList.remove('lazy-img');
+
     const newSource = entry.target.dataset.src;
+
     entry.target.src = newSource;
+
     observer.unobserve(entry.target);
   });
 };
 
 const imagesObserver = new IntersectionObserver(revealImages, {
   root: null,
-  threshold: 0.15,
+  threshold: 0.3,
 });
 
 featuresImages.forEach(function (el) {
