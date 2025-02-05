@@ -170,6 +170,11 @@ sections.forEach(function (cur) {
   sectionObserver.observe(cur);
 });
 
+//Lazy Image
+
+const featuresImages = document.querySelectorAll('.features__img');
+console.log(featuresImages);
+
 //Going Downwards
 // console.log(h1.childNodes);
 // console.log(h1.children);
