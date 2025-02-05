@@ -170,9 +170,9 @@ sections.forEach(function (cur) {
   sectionObserver.observe(cur);
 });
 
-//Lazy Image
+//Lazy Image Implementation
 
-const featuresImages = document.querySelectorAll('.features__img');
+const imgTarget = document.querySelectorAll('img[data-src]');
 
 const revealImages = function (entries, observer) {
   entries.forEach(function (entry) {
@@ -180,9 +180,7 @@ const revealImages = function (entries, observer) {
 
     entry.target.classList.remove('lazy-img');
 
-    const newSource = entry.target.dataset.src;
-
-    entry.target.src = newSource;
+    entry.target.src = entry.target.dataset.src;
 
     observer.unobserve(entry.target);
   });
@@ -193,7 +191,7 @@ const imagesObserver = new IntersectionObserver(revealImages, {
   threshold: 0.3,
 });
 
-featuresImages.forEach(function (el) {
+imgTarget.forEach(function (el) {
   imagesObserver.observe(el);
 });
 
