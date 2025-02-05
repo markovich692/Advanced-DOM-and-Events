@@ -204,18 +204,11 @@ imgTarget.forEach(function (el) {
 
 const slides = document.querySelectorAll('.slide');
 
+let i = 0;
 slides.forEach(function (slide) {
-  if (slide.classList.contains('slide--1')) {
-    slide.style.transform = 'translateX(0%)';
-  }
-
-  if (slide.classList.contains('slide--2')) {
-    slide.style.transform = 'translateX(100%)';
-  }
-
-  if (slide.classList.contains('slide--3')) {
-    slide.style.transform = 'translateX(200%)';
-  }
+  console.log(slide);
+  slide.style.transform = `translateX(${i}%)`;
+  i = i + 100;
 });
 
 //Going Downwards
