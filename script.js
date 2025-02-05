@@ -202,13 +202,14 @@ imgTarget.forEach(function (el) {
 
 //SLIDER
 
+const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 
-let i = 0;
-slides.forEach(function (slide) {
-  console.log(slide);
-  slide.style.transform = `translateX(${i}%)`;
-  i = i + 100;
+slider.style.transform = 'scale(.3)';
+slider.style.overflow = 'visible';
+
+slides.forEach(function (slide, i) {
+  slide.style.transform = `translateX(${100 * i}%)`;
 });
 
 //Going Downwards
