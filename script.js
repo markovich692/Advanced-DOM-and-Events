@@ -283,6 +283,8 @@ dotContainer.addEventListener('click', function (e) {
 
   const slideNumber = e.target.dataset.slide;
 
+  e.target.classList.add('dots__dot--active');
+
   goToSlide(slideNumber);
 });
 
