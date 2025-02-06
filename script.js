@@ -221,16 +221,14 @@ slides.forEach(function (slide, i) {
 
 //Right arrow
 slideBtnRight.addEventListener('click', function (e) {
-  curSlide++;
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
   slides.forEach(function (slide, i) {
-    if (curSlide < maxSlide) {
-      slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
-    } else {
-      slides.forEach(function (slide, i) {
-        slide.style.transform = `translateX(${100 * i}%)`;
-      });
-      curSlide = 0;
-    }
+    slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
   });
 });
 
