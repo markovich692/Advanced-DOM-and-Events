@@ -231,14 +231,14 @@ dotsCreation();
 
 //ACTIVATE THE DOTS
 
-const dots = document.querySelectorAll('.dots__dot');
-
 const activateDots = function (slide) {
-  dots.forEach(function (el) {
-    el.classList.remove('dots__dot--active');
+  document
+    .querySelectorAll('.dots__dot')
+    .forEach(dot => dot.classList.remove('dots__dot--active'));
 
-    if (el.dataset.slide === slide) el.classList.add('dots__dot--active');
-  });
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
 };
 
 //THE GO TO SLIDE FUNCTION
@@ -254,6 +254,8 @@ const slideRight = function () {
   } else {
     curSlide++;
   }
+
+  // activateDots(curSlide);
 
   goToSlide(curSlide);
   activateDots(curSlide);
@@ -291,13 +293,8 @@ document.addEventListener('keydown', function (e) {
 dotContainer.addEventListener('click', function (e) {
   //GUARD CLAUSE
   if (!e.target.classList.contains('dots__dot')) return;
-
   curSlide = e.target.dataset.slide;
-
-  // console.log(e.target);
-
   goToSlide(curSlide);
-
   activateDots(curSlide);
 });
 
