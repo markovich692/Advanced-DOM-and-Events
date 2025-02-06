@@ -215,9 +215,17 @@ const maxSlide = slides.length;
 
 console.log(slides);
 
-slides.forEach(function (slide, i) {
-  slide.style.transform = `translateX(${100 * i}%)`;
-});
+// slides.forEach(function (slide, i) {
+//   slide.style.transform = `translateX(${100 * i}%)`;
+// });
+
+const transformer = function (slideEl, curSlide) {
+  slideEl.forEach(function (slide, i) {
+    slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+  });
+};
+
+transformer(slides, 0);
 
 //Right arrow
 slideBtnRight.addEventListener('click', function (e) {
@@ -227,9 +235,11 @@ slideBtnRight.addEventListener('click', function (e) {
     curSlide++;
   }
 
-  slides.forEach(function (slide, i) {
-    slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
-  });
+  transformer(slides, curSlide);
+
+  // slides.forEach(function (slide, i) {
+  //   slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+  // });
 });
 
 //Going Downwards
