@@ -231,12 +231,14 @@ dotsCreation();
 
 //ACTIVATE THE DOTS
 
-const activateDots = function (slide) {
-  slides.forEach(function (s) {
-    s.classList.remove('dots__dot--active');
-  });
+const dots = document.querySelectorAll('.dots__dot');
 
-  slide.add.classlist('dots__dot--active');
+const activateDots = function (slide) {
+  dots.forEach(function (el) {
+    el.classList.remove('dots__dot--active');
+
+    if (el.dataset.slide === slide) el.classList.add('dots__dot--active');
+  });
 };
 
 //THE GO TO SLIDE FUNCTION
