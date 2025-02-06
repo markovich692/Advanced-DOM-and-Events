@@ -207,10 +207,13 @@ const slides = document.querySelectorAll('.slide');
 const slideBtnRight = document.querySelector('.slider__btn--right');
 const slideBtnLeft = document.querySelector('.slider__btn--left');
 
-// slider.style.transform = 'scale(.3)';
-// slider.style.overflow = 'visible';
+slider.style.transform = 'scale(.2)';
+slider.style.overflow = 'visible';
 
 let curSlide = 0;
+const maxSlide = slides.length;
+
+console.log(slides);
 
 slides.forEach(function (slide, i) {
   slide.style.transform = `translateX(${100 * i}%)`;
@@ -220,28 +223,14 @@ slides.forEach(function (slide, i) {
 slideBtnRight.addEventListener('click', function (e) {
   curSlide++;
   slides.forEach(function (slide, i) {
-    if (curSlide < slides.length) {
-      console.log(curSlide, i);
-
-      const value = slide.style.transform;
-      const number = parseInt(value.split('(')[1]);
-
-      slide.style.transform = `translateX(${number - 100}%)`;
+    if (curSlide < maxSlide) {
+      slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
     } else {
       slides.forEach(function (slide, i) {
         slide.style.transform = `translateX(${100 * i}%)`;
       });
+      curSlide = 0;
     }
-  });
-});
-
-//Left arrow
-slideBtnLeft.addEventListener('click', function () {
-  slides.forEach(function (slide, i) {
-    const value = slide.style.transform;
-    const number = parseInt(value.split('(')[1]);
-
-    slide.style.transform = `translateX(${number + 100}%)`;
   });
 });
 
