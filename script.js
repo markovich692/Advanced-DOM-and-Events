@@ -281,11 +281,11 @@ document.addEventListener('keydown', function (e) {
 dotContainer.addEventListener('click', function (e) {
   if (!e.target.classList.contains('dots__dot')) return;
 
-  const slideNumber = e.target.dataset.slide;
+  curSlide = e.target.dataset.slide;
 
-  e.target.classList.add('dots__dot--active');
+  // e.target.classList.add('dots__dot--active');
 
-  goToSlide(slideNumber);
+  goToSlide(curSlide);
 });
 
 //Going Downwards
