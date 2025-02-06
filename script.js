@@ -171,7 +171,6 @@ sections.forEach(function (cur) {
 });
 
 //Lazy Image Implementation
-
 const imgTarget = document.querySelectorAll('img[data-src]');
 
 const revealImages = function (entries, observer) {
@@ -201,45 +200,60 @@ imgTarget.forEach(function (el) {
 });
 
 //SLIDER
-
-const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
-const slideBtnRight = document.querySelector('.slider__btn--right');
-const slideBtnLeft = document.querySelector('.slider__btn--left');
+const slider = document.querySelector('.slider');
+const btnRight = document.querySelector('.slider__btn--right');
+const btnLeft = document.querySelector('.slider__btn--left');
 
-slider.style.transform = 'scale(.2)';
-slider.style.overflow = 'visible';
-
+// slider.style.transform = `scale(0.3)`;
+// slider.style.overflow = `visible`;
 let curSlide = 0;
-const maxSlide = slides.length;
-
-console.log(slides);
-
-// slides.forEach(function (slide, i) {
-//   slide.style.transform = `translateX(${100 * i}%)`;
-// });
+const maxSlides = slides.length;
 
 const goToSlide = function (curSlide) {
-  slides.forEach(function (slide, i) {
-    slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+  slides.forEach(function (slide, index) {
+    slide.style.transform = `translateX(${100 * (index - curSlide)}%)`;
   });
 };
 
-goToSlide(0);
-
-//Right arrow
-slideBtnRight.addEventListener('click', function (e) {
-  if (curSlide === maxSlide - 1) {
+const slideRight = function () {
+  if (curSlide === maxSlides - 1) {
     curSlide = 0;
   } else {
     curSlide++;
   }
 
   goToSlide(curSlide);
+};
 
-  // slides.forEach(function (slide, i) {
-  //   slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
-  // });
+const slideLeft = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlides - 1;
+  } else {
+    curSlide--;
+  }
+
+  goToSlide(curSlide);
+};
+
+goToSlide(0);
+
+//Button right functionality
+btnRight.addEventListener('click', slideRight);
+btnLeft.addEventListener('click', slideLeft);
+
+//Slider Part 2
+
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'ArrowRight') {
+    slideRight();
+  }
+
+  if (e.key === 'ArrowLeft') {
+    slideLeft();
+  }
 });
 
 //Going Downwards
