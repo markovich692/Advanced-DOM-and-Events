@@ -229,10 +229,19 @@ const dotsCreation = function () {
 
 dotsCreation();
 
-//
-const goToSlide = function (curSlide) {
-  slides.forEach(function (slide, index) {
-    slide.style.transform = `translateX(${100 * (index - curSlide)}%)`;
+//ACTIVATE THE DOTS
+
+const activateDots = function (slide) {
+  slides.forEach(function (s) {
+    s.classList.remove('dots__dot--active');
+  });
+
+  slide.add.classlist('dots__dot--active');
+};
+
+const goToSlide = function (slide) {
+  slides.forEach(function (s, index) {
+    s.style.transform = `translateX(${100 * (index - slide)}%)`;
   });
 };
 
@@ -265,25 +274,22 @@ btnLeft.addEventListener('click', slideLeft);
 //Slider Part 2
 
 document.addEventListener('keydown', function (e) {
-  console.log(e.key);
+  // console.log(e.key);
 
-  if (e.key === 'ArrowRight') {
-    slideRight();
-  }
+  if (e.key === 'ArrowRight') slideRight();
 
-  if (e.key === 'ArrowLeft') {
-    slideLeft();
-  }
+  if (e.key === 'ArrowLeft') slideLeft();
 });
 
 //Dots functionality
 
 dotContainer.addEventListener('click', function (e) {
+  //GUARD CLAUSE
   if (!e.target.classList.contains('dots__dot')) return;
 
   curSlide = e.target.dataset.slide;
 
-  // e.target.classList.add('dots__dot--active');
+  // console.log(e.target);
 
   goToSlide(curSlide);
 });
