@@ -211,6 +211,20 @@ const dotContainer = document.querySelector('.dots');
 let curSlide = 0;
 const maxSlides = slides.length;
 
+//DOTS
+const dotsCreation = function () {
+  slides.forEach(function (_, i) {
+    const dotEl = document.createElement('button');
+    dotEl.classList.add('dots__dot');
+    dotEl.setAttribute('data-slide', i);
+
+    dotContainer.append(dotEl.cloneNode(true));
+  });
+};
+
+dotsCreation();
+
+//
 const goToSlide = function (curSlide) {
   slides.forEach(function (slide, index) {
     slide.style.transform = `translateX(${100 * (index - curSlide)}%)`;
