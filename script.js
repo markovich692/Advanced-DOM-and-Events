@@ -219,13 +219,13 @@ console.log(slides);
 //   slide.style.transform = `translateX(${100 * i}%)`;
 // });
 
-const transformer = function (slideEl, curSlide) {
-  slideEl.forEach(function (slide, i) {
+const goToSlide = function (curSlide) {
+  slides.forEach(function (slide, i) {
     slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
   });
 };
 
-transformer(slides, 0);
+goToSlide(0);
 
 //Right arrow
 slideBtnRight.addEventListener('click', function (e) {
@@ -235,7 +235,7 @@ slideBtnRight.addEventListener('click', function (e) {
     curSlide++;
   }
 
-  transformer(slides, curSlide);
+  goToSlide(curSlide);
 
   // slides.forEach(function (slide, i) {
   //   slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
