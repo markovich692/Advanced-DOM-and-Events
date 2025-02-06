@@ -241,6 +241,8 @@ const activateDots = function (slide) {
     .classList.add('dots__dot--active');
 };
 
+activateDots(0);
+
 //THE GO TO SLIDE FUNCTION
 const goToSlide = function (slide) {
   slides.forEach(function (s, index) {
