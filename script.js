@@ -239,6 +239,7 @@ const activateDots = function (slide) {
   slide.add.classlist('dots__dot--active');
 };
 
+//THE GO TO SLIDE FUNCTION
 const goToSlide = function (slide) {
   slides.forEach(function (s, index) {
     s.style.transform = `translateX(${100 * (index - slide)}%)`;
@@ -253,6 +254,7 @@ const slideRight = function () {
   }
 
   goToSlide(curSlide);
+  activateDots(curSlide);
 };
 
 const slideLeft = function () {
@@ -263,6 +265,7 @@ const slideLeft = function () {
   }
 
   goToSlide(curSlide);
+  activateDots(curSlide);
 };
 
 goToSlide(0);
@@ -292,6 +295,8 @@ dotContainer.addEventListener('click', function (e) {
   // console.log(e.target);
 
   goToSlide(curSlide);
+
+  activateDots(curSlide);
 });
 
 //Going Downwards
