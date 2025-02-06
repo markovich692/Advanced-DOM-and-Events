@@ -204,6 +204,7 @@ const slides = document.querySelectorAll('.slide');
 const slider = document.querySelector('.slider');
 const btnRight = document.querySelector('.slider__btn--right');
 const btnLeft = document.querySelector('.slider__btn--left');
+const dotContainer = document.querySelector('.dots');
 
 // slider.style.transform = `scale(0.3)`;
 // slider.style.overflow = `visible`;
