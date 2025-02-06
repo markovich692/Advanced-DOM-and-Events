@@ -211,7 +211,7 @@ const dotContainer = document.querySelector('.dots');
 let curSlide = 0;
 const maxSlides = slides.length;
 
-//DOTS
+//DOTS INSERTION
 const dotsCreation = function () {
   slides.forEach(function (_, i) {
     // const dotEl = document.createElement('button');
@@ -274,6 +274,16 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowLeft') {
     slideLeft();
   }
+});
+
+//Dots functionality
+
+dotContainer.addEventListener('click', function (e) {
+  if (!e.target.classList.contains('dots__dot')) return;
+
+  const slideNumber = e.target.dataset.slide;
+
+  goToSlide(slideNumber);
 });
 
 //Going Downwards
