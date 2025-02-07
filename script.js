@@ -180,7 +180,6 @@ const revealImages = function (entries, observer) {
     entry.target.src = entry.target.dataset.src;
 
     //Displays image once the replacement image is fully loaded and well displayed
-
     entry.target.addEventListener('load', function () {
       entry.target.classList.remove('lazy-img');
     });
@@ -299,6 +298,11 @@ dotContainer.addEventListener('click', function (e) {
   goToSlide(curSlide);
   activateDots(curSlide);
 });
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   e.returnValue = '';
+// });
 
 //Going Downwards
 // console.log(h1.childNodes);
